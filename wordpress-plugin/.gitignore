@@ -1,0 +1,28 @@
+# Ignore development files
+.DS_Store
+*.log
+npm-debug.log*
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Ignore build artifacts
+node_modules/
+vendor/
+*.min.js
+*.min.css
+.sass-cache/
+
+# Ignore temporary files
+*.tmp
+*.bak
+.cache/
+
+# Keep plugin assets
+!assets/**/*
+!public/css/**/*
+!public/js/**/*
+!admin/css/**/*
+!admin/js/**/*
