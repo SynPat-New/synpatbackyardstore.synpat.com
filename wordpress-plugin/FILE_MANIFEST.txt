@@ -1,0 +1,130 @@
+SYNPAT BACKYARD PATENT STORE - WORDPRESS PLUGIN
+File Manifest and Structure
+================================================
+
+CORE PLUGIN FILES
+-----------------
+synpat-patent-store.php          Main plugin bootstrap file
+
+INCLUDES (Business Logic)
+-------------------------
+includes/class-database.php                Database schema and queries
+includes/class-portfolio-post-type.php     Portfolio custom post type
+includes/class-patent-post-type.php        Patent custom post type  
+includes/class-shortcodes.php              Shortcode handlers
+includes/class-ajax-handlers.php           AJAX endpoint handlers
+
+ADMIN (Backend Interface)
+-------------------------
+admin/class-admin.php              Admin menu and settings
+admin/views/settings.php           Settings page template
+admin/css/admin-styles.css         Admin panel styling
+admin/js/admin-scripts.js          Admin JavaScript
+
+PUBLIC (Frontend Interface)
+---------------------------
+public/class-public.php            Frontend asset loader
+public/css/store-frontend.css      Store frontend styling
+public/js/store-frontend.js        Frontend AJAX interactions
+
+TEMPLATES (Display)
+-------------------
+public/templates/portfolio-catalog.php     Outer store catalog
+public/templates/portfolio-single.php      Portfolio detail page
+public/templates/patent-list.php           Patents in portfolio
+public/templates/patent-single.php         Inner room patent view
+
+DOCUMENTATION
+-------------
+INSTALLATION.md          Complete installation guide
+README.md               Technical overview
+readme.txt              WordPress plugin directory format
+PLUGIN_SUMMARY.md       Feature summary
+FILE_MANIFEST.txt       This file
+
+CONFIGURATION
+-------------
+.gitignore              Git exclusions
+
+ASSETS
+------
+assets/images/          Plugin images (empty - ready for logos)
+
+DATABASE SCHEMA
+===============
+Tables Created on Activation:
+- {prefix}_licensing_portfolios
+- {prefix}_patent_inventory  
+- {prefix}_portfolio_contains_patents
+- {prefix}_buyer_wishlist
+- {prefix}_buyer_tech_preferences
+- {prefix}_actual_and_potential_licensees
+
+SHORTCODES AVAILABLE
+====================
+[portfolio_catalog]         Display portfolio catalog
+[portfolio_details]         Show portfolio details
+[customer_wishlist]         Customer's saved portfolios
+[patent_inner_room]         Patent detail view
+
+CUSTOM POST TYPES
+=================
+- synpat_portfolio          Portfolio CPT
+- synpat_patent            Patent CPT
+
+TAXONOMIES
+==========
+- tech_sector              Technology categorization
+
+AJAX ACTIONS
+============
+- add_to_wishlist          Add portfolio to wishlist
+- remove_from_wishlist     Remove from wishlist
+- save_tech_preference     Save customer preferences
+- load_portfolio_patents   Load patents for portfolio
+- test_ci_connection       Test CodeIgniter DB connection
+- start_data_migration     Migrate data from CI
+
+ADMIN MENUS
+===========
+- Patent Store Dashboard
+- Settings
+- Portfolios (CPT)
+- Patents (CPT)
+
+KEY BUSINESS FIELDS
+===================
+Portfolios:
+- n_patents        Number of patents
+- essnt           Essential status flag  
+- n_lic           Number of licensees
+- u_upfront       Upfront payment amount
+
+Patents:
+- patent_identifier        Patent number
+- filing_timestamp        Filing date
+- grant_timestamp         Grant date
+- expiry_timestamp        Expiration date
+- enforcement_status      Legal status
+- cited_by_count         Forward citations
+- cites_prior_count      Backward citations
+- independent_claims     Claims count
+
+INSTALLATION REQUIREMENTS
+=========================
+- WordPress 5.0+
+- PHP 7.4+
+- MySQL 5.6+
+
+SECURITY FEATURES
+=================
+- Nonce verification on all AJAX
+- Prepared statements for SQL
+- Output escaping (esc_html, esc_attr)
+- Input sanitization
+- Capability checks
+- ABSPATH protection
+
+VERSION
+=======
+1.0.0 - Initial release
